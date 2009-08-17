@@ -1,0 +1,5 @@
+To run the current agent in development:
+from the ./build/classes directory type:
+
+java ch.idsia.scenarios.Play ch.idsia.ai.agents.ai.mine.BasicMineAI
+

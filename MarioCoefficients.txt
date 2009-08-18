@@ -1,0 +1,43 @@
+	/// Mario's Movement is something like: Speed + sum[ Speed * (Friction ^ time), 1, time]
+	/// Normal Speed: 0.6
+	/// Fast Speed: 1.2
+	/// Friction: 0.89
+	/// 
+	/// Marios Speeddown: Velocity * 0.89;
+	///
+	/// Gravity force is something like this:
+	/// FallSpeed + sum[ FallSpeed * (GFriction ^ time), 1, time]
+	/// FallSpeed: 3.0
+	/// Friction: 0.85
+	/// 
+	/// Gravity force acts weird!
+	///
+	/// On a jump:
+	/// 
+	/// It is: 7 * 1.9 TWICE
+	/// Then 6 5 4 3 2 1
+	/// Then only ONCE 1 again.
+	/// JumpSpeed: 1.9
+	/// JumpTime: 7
+	///
+	/// !!!
+	/// Now gravity comes in: 3 - 1.9 * .85
+	/// Then it's: ((3 - 1.9* .85) * .85 + 3)
+	/// So it's LAST * .85 + 3
+	/// Remember that G (FallSpeed) == 3.0
+	/// .85 is the G friction
+	///
+	/// Note... if mario goes like this >>>>>>>>>> and suddenly he does <<<<<... the thing is like this.
+	/// (PastSpeed * .89) - 0.6 
+	/// THE .6 IS NOT AFFECTED... so he can really stop moving :)
+	/// Then his stop is linear.
+	/// IT WONT GO BELOW 0... if it's 0.54 - 0.6 = 0!
+	///
+	/// Movimiento Tortuga:
+	/// Constante +- 1.75
+	/// Cambio de velocidad: 1.75 a -0.5 a -1.75
+	/// -1.75 a -1.25 a 1.75
+	///
+	///
+	/// Mario siempre está en el 11,11 de la matriz de 22 x 22
+	/// Si empieza en el 32, entonces está en el bloque 2 -> 3 porque empezamos desde cero

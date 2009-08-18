@@ -20,7 +20,7 @@ public class BasicMineAI extends RegisterableAgent implements Agent
     @Override
      public void reset() {
         action[Mario.KEY_RIGHT] = true;
-        //action[Mario.KEY_SPEED] = true;
+        action[Mario.KEY_SPEED] = true;
         trueJumpCounter = 0;
     }
    
@@ -64,7 +64,7 @@ public class BasicMineAI extends RegisterableAgent implements Agent
         if(darBaja)
         {
             darBaja=false;
-            action[Mario.KEY_SPEED]=false;
+            action[Mario.KEY_SPEED]=true;
         }
         byte[][] enemyGrid = observation.getEnemiesObservation();
         int enemy; //que enemigo es?
@@ -73,7 +73,7 @@ public class BasicMineAI extends RegisterableAgent implements Agent
         {                
             if(enemy!=0)
             {
-                action[Mario.KEY_SPEED] =true;
+                action[Mario.KEY_SPEED] =false;
                 darBaja=true; //flag para prender de vuelta la velocidad en
                               //el turno siguiente
             }
